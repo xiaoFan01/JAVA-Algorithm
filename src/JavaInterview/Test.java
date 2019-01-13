@@ -13,30 +13,43 @@ class LNode{
 }
 public class Test {
 
-    //逆序方法
+//    ①逆序方法-就地逆序
+//    public static void Reverse(LNode head){
+//        if (head == null || head.next == null)
+//            return;
+//        //一下三个分别表示 当前节点、前驱节点、后续节点
+//        LNode cur = null;
+//        LNode pre = null;
+//        LNode next = null;
+//
+//        cur = head.next;
+//        next = cur.next;
+//        cur.next = null;
+//        pre = cur;
+//        cur = next;
+//        //让遍历到的节点指向前驱节点
+//        while (cur.next != null){
+//            next = next.next;
+//            cur.next = pre;
+//            pre = cur;
+//            cur = next;
+//        }
+//        //遍历结束，让head指向原链表的尾节点
+//        cur.next = pre;
+//        head.next = cur;
+//    }
+//  ②插入法逆序
     public static void Reverse(LNode head){
         if (head == null || head.next == null)
             return;
-        //一下三个分别表示 当前节点、前驱节点、后续节点
-        LNode cur = null;
-        LNode pre = null;
-        LNode next = null;
-
-        cur = head.next;
-        next = cur.next;
-        cur.next = null;
-        pre = cur;
-        cur = next;
-        //让遍历到的节点指向前驱节点
-        while (cur.next != null){
-            next = next.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
+        LNode cur = head.next;
+        LNode next = cur.next;
+        while (next != null){
+            cur.next = next.next;
+            next.next = head.next;
+            head.next = next;
+            next = cur.next;
         }
-        //遍历结束，让head指向原链表的尾节点
-        cur.next = pre;
-        head.next = cur;
     }
 
     public static void main(String[] args) {
