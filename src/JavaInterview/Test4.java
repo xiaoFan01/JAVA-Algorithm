@@ -24,7 +24,7 @@ class MyStack<T>{
     T pop(){
         if (stackSize>0){
             stackSize = stackSize - 1;
-            return arrayList.get(stackSize);
+            return arrayList.remove(stackSize);
         }
         System.out.println("栈空");
         return null;
