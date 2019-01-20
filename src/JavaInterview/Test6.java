@@ -35,7 +35,8 @@ class MyQueue<T>{
     public void deQueue(){
         if (front<real)
             front++;
-        System.out.println("队空");
+        else
+            System.out.println("队空");
     }
 
     public void enQueue(T data){
