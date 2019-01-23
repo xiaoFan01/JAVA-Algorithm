@@ -8,8 +8,17 @@ public class Test8 {
         if (!stack.isEmpty()){
             move_bottom_to_top(stack);
             int top2 = stack.pop();
-            stack.push(top1);
-            stack.push(top2);
+//            栈的逆序
+//            stack.push(top1);
+//            stack.push(top2);
+//            栈的排序
+            if (top1>top2){
+                stack.push(top1);
+                stack.push(top2);
+            }else {
+                stack.push(top2);
+                stack.push(top1);
+            }
         }else {
             stack.push(top1);
         }
